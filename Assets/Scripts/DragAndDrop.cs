@@ -39,7 +39,7 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.tag == "Broccoli"){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//"menuScene"); //SceneManager.GetActiveScene().buildIndex + 1
+            SceneManager.LoadScene("menuScene"); //SceneManager.GetActiveScene().buildIndex + 1
         }
     }
 }
