@@ -13,13 +13,15 @@ public class MoveBurger : MonoBehaviour
     Vector2 startPosition;
     Vector2 movement;
     float speed;
+    float increase;
 
     // Start is called before the first frame update
     void Start()
     {
         transform.position = RandomStartPosition();
         movement = RandomStartDirection();
-        speed = 5f;
+        speed = 3f;
+        increase = .05f;
     }
 
     // Update is called once per frame
@@ -27,15 +29,22 @@ public class MoveBurger : MonoBehaviour
     {
         if(transform.position.x > maxX){
             movement.x = -1;
+            speed += increase;
         }
         if(transform.position.x < minX){
             movement.x = 1;
+            speed += increase;
         }
         if(transform.position.y > maxY){
             movement.y = -1;
+            speed += increase;
         }
         if(transform.position.y < minY){
             movement.y = 1;
+            speed += increase;
+        }
+        if(speed > 20){
+            speed = 20;
         }
         transform.Translate(movement * speed * Time.deltaTime);
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DragAndDrop : MonoBehaviour
 {
@@ -34,6 +35,14 @@ public class DragAndDrop : MonoBehaviour
         if(Input.GetMouseButtonUp(0)){
             moveAllowed = false;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision){
+        if(collision.tag == "Broccoli"){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//"menuScene"); //SceneManager.GetActiveScene().buildIndex + 1
+        }
+    }
+}
 
         // if(Input.touchCount > 0){
         //     Touch touch = Input.GetTouch(0);
@@ -54,5 +63,5 @@ public class DragAndDrop : MonoBehaviour
         //     }
         // }
 
-    }
-}
+    
+
