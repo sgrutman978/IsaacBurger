@@ -4,49 +4,24 @@ using UnityEngine;
 
 public class MoveBurger : MonoBehaviour
 {
-    
+
     public float minX;
     public float maxX;
     public float minY;
     public float maxY;
 
-    Vector2 startPosition;
-    Vector2 movement;
-    float speed;
-    float increase;
-
     // Start is called before the first frame update
     void Start()
     {
         transform.position = RandomStartPosition();
-        movement = RandomStartDirection();
-        speed = 3f;
-        increase = .05f;
+        gameObject.GetComponent<Renderer>().enabled = false;
+        StartCoroutine(ExampleCoroutine());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.x > maxX){
-            movement.x = -1;
-            speed += increase;
-        }
-        if(transform.position.x < minX){
-            movement.x = 1;
-            speed += increase;
-        }
-        if(transform.position.y > maxY){
-            movement.y = -1;
-            speed += increase;
-        }
-        if(transform.position.y < minY){
-            movement.y = 1;
-            speed += increase;
-        }
-        if(speed > 20){
-            speed = 20;
-        }
-        transform.Translate(movement * speed * Time.deltaTime);
+        
     }
 
     Vector2 RandomStartPosition(){
@@ -55,15 +30,16 @@ public class MoveBurger : MonoBehaviour
         return new Vector2(randomX, randomY);
     }
 
-    Vector2 RandomStartDirection(){
-        float x = 1f;
-        float y = 1f;
-        if(Random.Range(0, 2) == 0){
-            x = -x;
-        }
-        if(Random.Range(0, 2) == 0){
-            y = -y;
-        }
-        return new Vector2(x, y);
+    IEnumerator ExampleCoroutine()
+    {
+        float rand = Random.Range(1, 7);
+        float rand2 = Random.Range(1, 7);
+        transform.position = RandomStartPosition();
+        yield return new WaitForSeconds(rand);
+        gameObject.GetComponent<Renderer>().enabled = true;
+        yield return new WaitForSeconds(rand2);
+        gameObject.GetComponent<Renderer>().enabled = false;
+        StartCoroutine(ExampleCoroutine());
+
     }
 }
