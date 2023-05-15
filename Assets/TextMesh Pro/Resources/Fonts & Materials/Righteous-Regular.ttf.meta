@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: aa8f77a00b3045242b3b7c8c15b285a4
+guid: 8ef75b16ac95d7a47a06d7dd87b4f65a
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Desyrel
+  - Righteous
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

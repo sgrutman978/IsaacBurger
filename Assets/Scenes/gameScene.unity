@@ -178,6 +178,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreLabel: {fileID: 1513311065}
+  minX: -4.21
+  maxX: 4.21
+  minY: -8.16
+  maxY: 8.16
 --- !u!212 &171170610
 SpriteRenderer:
   m_ObjectHideFlags: 0
